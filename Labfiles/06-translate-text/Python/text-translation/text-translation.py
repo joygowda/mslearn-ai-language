@@ -1,3 +1,4 @@
+#code added by Joy Dhairyalakshmi Gowda per lab instructions
 from dotenv import load_dotenv
 import os
 import requests, json
@@ -17,6 +18,10 @@ def main():
         cog_key = os.getenv('COG_SERVICE_KEY')
         cog_region = os.getenv('COG_SERVICE_REGION')
         translator_endpoint = 'https://api.cognitive.microsofttranslator.com'
+
+        # Create client using endpoint and key
+        credential = TranslatorCredential(translatorKey, translatorRegion)
+        client = TextTranslationClient(credential)
 
         # Analyze each text file in the reviews folder
         reviews_folder = 'reviews'
